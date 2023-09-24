@@ -124,7 +124,7 @@ public class JobPlacementsPanel extends JPanel {
         JComboBox<Side> sidesComboBox = new JComboBox(Side.values());
         // Note we don't use Type.values() here because there are a couple Types that are only
         // there for backwards compatibility and we don't want them in the list.
-        JComboBox<Type> typesComboBox = new JComboBox(new Type[] { Type.Placement, Type.Fiducial });
+        JComboBox<Type> typesComboBox = new JComboBox(new Type[] { Type.Placement, Type.Fiducial, Type.Dispence });
         JComboBox<Type> errorHandlingComboBox = new JComboBox(ErrorHandling.values());
         
                 setLayout(new BorderLayout(0, 0));

@@ -1587,7 +1587,7 @@ public class JobPanel extends JPanel {
     	        continue;
     	    }
         	for (Placement placement : boardLocation.getBoard().getPlacements()) {
-                if (placement.getType() != Type.Placement) {
+                if (placement.getType() != Type.Placement && placement.getType() != Type.Dispence) {
                     continue;
                 }
                 if (!placement.isEnabled()) {

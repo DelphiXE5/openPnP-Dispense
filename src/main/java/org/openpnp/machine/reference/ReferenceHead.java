@@ -20,6 +20,7 @@
 package org.openpnp.machine.reference;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.swing.Action;
 
@@ -28,6 +29,7 @@ import org.openpnp.gui.support.PropertySheetWizardAdapter;
 import org.openpnp.gui.support.Wizard;
 import org.openpnp.machine.reference.psh.ActuatorsPropertySheetHolder;
 import org.openpnp.machine.reference.psh.CamerasPropertySheetHolder;
+import org.openpnp.machine.reference.psh.DispencersPropertySheetHolder;
 import org.openpnp.machine.reference.psh.NozzlesPropertySheetHolder;
 import org.openpnp.machine.reference.solutions.HeadSolutions;
 import org.openpnp.machine.reference.wizards.ReferenceHeadConfigurationWizard;
@@ -126,6 +128,8 @@ public class ReferenceHead extends AbstractHead {
                 "ReferenceHead.CamerasPropertySheetHolder.title"), getCameras(), null)); //$NON-NLS-1$
         children.add(new ActuatorsPropertySheetHolder(this, Translations.getString(
                 "ReferenceHead.ActuatorsPropertySheetHolder.title"), getActuators(), null)); //$NON-NLS-1$
+        children.add(new DispencersPropertySheetHolder(this, Translations.getString(
+                "ReferenceHead.DispencersPropertySheetHolder.title"), getDispencers(), null)); //$NON-NLS-1$
         return children.toArray(new PropertySheetHolder[] {});
     }
 

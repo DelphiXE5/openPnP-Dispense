@@ -31,8 +31,8 @@ import org.openpnp.Translations;
 import org.openpnp.gui.components.ComponentDecorators;
 import org.openpnp.gui.support.AbstractConfigurationWizard;
 import org.openpnp.gui.support.IntegerConverter;
-import org.openpnp.machine.reference.ReferencePnpJobProcessor;
-import org.openpnp.machine.reference.ReferencePnpJobProcessor.JobOrderHint;
+import org.openpnp.machine.reference.processor.ReferencePnpJobProcessor;
+import org.openpnp.machine.reference.processor.ReferencePnpJobProcessor.JobOrderHint;
 
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;

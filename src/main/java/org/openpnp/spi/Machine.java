@@ -182,6 +182,8 @@ public interface Machine extends WizardConfigurable, PropertySheetHolder, Closea
 
     public List<Class<? extends Actuator>> getCompatibleActuatorClasses();
 
+    public List<Class<? extends Dispenser>> getCompatibleDispencerClasses();
+
     public List<Class<? extends Signaler>> getCompatibleSignalerClasses();
 
     public List<Class<? extends Driver>> getCompatibleDriverClasses();

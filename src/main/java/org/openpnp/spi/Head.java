@@ -77,6 +77,31 @@ public interface Head extends Identifiable, Named, WizardConfigurable, PropertyS
     public Actuator getActuatorByName(String name);
 
     /**
+     * Get a list of Actuators that are attached to this Head.
+     * 
+     * @return
+     */
+    public List<Dispenser> getDispencers();
+
+    /**
+     * Get the Actuator attached to this Head that has the specified id.
+     * 
+     * @param id
+     * @return
+     */
+    public Dispenser getDispencer(String id);
+
+    /**
+     * Get the Actuator attached to this Head that has the specified name.
+     * Returns null if the name is null or empty.
+     * 
+     * @param id
+     * @return
+     */
+    public Dispenser getDispencerByName(String name);
+
+
+    /**
      * Get a list of Cameras that are attached to this Head.
      * 
      * @return
@@ -115,6 +140,12 @@ public interface Head extends Identifiable, Named, WizardConfigurable, PropertyS
     public void permutateNozzle(Nozzle nozzle, int direction);
 
     public void removeNozzle(Nozzle nozzle);
+
+    public void addDispencer(Dispenser dispencer);
+
+    public void permutateDispencer(Dispenser dispencer, int direction);
+
+    public void removeDispencer(Dispenser dispencer);
 
     public void addActuator(Actuator actuator) throws Exception;
 

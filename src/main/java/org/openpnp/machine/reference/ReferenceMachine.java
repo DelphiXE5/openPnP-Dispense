@@ -54,6 +54,7 @@ import org.openpnp.machine.reference.camera.OpenPnpCaptureCamera;
 import org.openpnp.machine.reference.camera.SimulatedUpCamera;
 import org.openpnp.machine.reference.camera.SwitcherCamera;
 import org.openpnp.machine.reference.camera.Webcams;
+import org.openpnp.machine.reference.dispensers.DispensingValve;
 import org.openpnp.machine.reference.driver.GcodeAsyncDriver;
 import org.openpnp.machine.reference.driver.GcodeDriver;
 import org.openpnp.machine.reference.driver.NullDriver;
@@ -74,6 +75,7 @@ import org.openpnp.machine.reference.feeder.ReferenceTrayFeeder;
 import org.openpnp.machine.reference.feeder.ReferenceTubeFeeder;
 import org.openpnp.machine.reference.feeder.SchultzFeeder;
 import org.openpnp.machine.reference.feeder.SlotSchultzFeeder;
+import org.openpnp.machine.reference.processor.ReferencePnpJobProcessor;
 import org.openpnp.machine.reference.psh.ActuatorsPropertySheetHolder;
 import org.openpnp.machine.reference.psh.AxesPropertySheetHolder;
 import org.openpnp.machine.reference.psh.CamerasPropertySheetHolder;
@@ -98,6 +100,7 @@ import org.openpnp.model.Solutions.Milestone;
 import org.openpnp.spi.Actuator;
 import org.openpnp.spi.Axis;
 import org.openpnp.spi.Camera;
+import org.openpnp.spi.Dispenser;
 import org.openpnp.spi.Driver;
 import org.openpnp.spi.Feeder;
 import org.openpnp.spi.FiducialLocator;
@@ -470,6 +473,14 @@ public class ReferenceMachine extends AbstractMachine {
         l.add(ScriptActuator.class);
         l.add(ThermistorToLinearSensorActuator.class);
         l.add(NeoDen4FeederActuator.class);
+        return l;
+    }
+
+    @Override
+    public List<Class<? extends Dispenser>> getCompatibleDispencerClasses() {
+        List<Class<? extends Dispenser>> l = new ArrayList<>();
+        l.add(DispensingValve.class);
+        // l.add(ContactProbeNozzle.class);
         return l;
     }
 

@@ -68,6 +68,14 @@ public interface PnpJobProcessor extends JobProcessor {
                     ? placement.getPart().getId()
                             : "");
         }
+
+        public double getPartXCoordinate() {
+          return placement.getLocation().getX();
+        }
+
+        public double getPartYCoordinate() {
+          return placement.getLocation().getY();
+        }
         
         @Override
         public String toString() {

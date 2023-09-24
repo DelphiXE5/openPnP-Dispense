@@ -15,6 +15,7 @@ import org.openpnp.model.Location;
 import org.openpnp.model.Solutions;
 import org.openpnp.spi.Actuator;
 import org.openpnp.spi.Camera;
+import org.openpnp.spi.Dispenser;
 import org.openpnp.spi.Head;
 import org.openpnp.spi.HeadMountable;
 import org.openpnp.spi.Machine;
@@ -40,6 +41,9 @@ public abstract class AbstractHead extends AbstractModelObject implements Head {
 
     @ElementList(required = false)
     protected IdentifiableList<Actuator> actuators = new IdentifiableList<>();
+
+    @ElementList(required = false)
+    protected IdentifiableList<Dispenser> dispencers = new IdentifiableList<>();
 
     @ElementList(required = false)
     protected IdentifiableList<Camera> cameras = new IdentifiableList<>();
@@ -193,6 +197,26 @@ public abstract class AbstractHead extends AbstractModelObject implements Head {
     }
 
     @Override
+    public List<Dispenser> getDispencers() {
+        return Collections.unmodifiableList(dispencers);
+    }
+
+    @Override
+    public Dispenser getDispencer(String id) {
+        return dispencers.get(id);
+    }
+    
+    @Override
+    public Dispenser getDispencerByName(String name) {
+        for (Dispenser dispencer : dispencers) {
+            if (dispencer.getName().equals(name)) {
+                return dispencer;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<Actuator> getActuators() {
         return Collections.unmodifiableList(actuators);
     }
@@ -280,6 +304,33 @@ public abstract class AbstractHead extends AbstractModelObject implements Head {
     }
 
     @Override
+    public void addDispencer(Dispenser dispencer) {
+        dispencer.setHead(this);
+        dispencers.add(dispencer);
+        fireIndexedPropertyChange("dispencers", dispencers.size() - 1, null, dispencer);
+    }
+
+    @Override
+    public void removeDispencer(Dispenser dispencer) {
+        int index = dispencers.indexOf(dispencer);
+        if (dispencers.remove(dispencer)) {
+            fireIndexedPropertyChange("dispencers", index, dispencer, null);
+        }
+    }
+
+    @Override 
+    public void permutateDispencer(Dispenser dispencer, int direction) {
+        int index0 = dispencers.indexOf(dispencer);
+        int index1 = direction > 0 ? index0+1 : index0-1;
+        if (0 <= index1 && dispencers.size() > index1) {
+            dispencers.remove(dispencer);
+            dispencers.add(index1, dispencer);
+            fireIndexedPropertyChange("dispencers", index0, dispencer, dispencers.get(index0));
+            fireIndexedPropertyChange("dispencers", index1, dispencers.get(index0), dispencer);
+        }
+    }
+
+    @Override
     public void addNozzle(Nozzle nozzle) throws Exception {
         nozzle.setHead(this);
         nozzles.add(nozzle);
@@ -309,6 +360,7 @@ public abstract class AbstractHead extends AbstractModelObject implements Head {
     @Override
     public List<HeadMountable> getHeadMountables() {
         List<HeadMountable> list = new ArrayList<>();
+        list.addAll(dispencers);
         list.addAll(nozzles);
         list.addAll(cameras);
         list.addAll(actuators);

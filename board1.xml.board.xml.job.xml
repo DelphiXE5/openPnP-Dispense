@@ -1,0 +1,22 @@
+<openpnp-job>
+   <panels/>
+   <board-locations>
+      <board-location side="Top" board-file="board1.xml.board.xml" panel-id="Panel1" check-fiducials="true" enabled="true">
+         <location units="Millimeters" x="-0.04769058238173329" y="0.0899902032591342" z="0.0" rotation="-0.004405396964864601"/>
+         <placed class="java.util.HashMap">
+            <entry>
+               <string>S3</string>
+               <boolean>true</boolean>
+            </entry>
+            <entry>
+               <string>S1</string>
+               <boolean>true</boolean>
+            </entry>
+            <entry>
+               <string>S2</string>
+               <boolean>true</boolean>
+            </entry>
+         </placed>
+      </board-location>
+   </board-locations>
+</openpnp-job>

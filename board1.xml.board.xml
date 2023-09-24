@@ -1,0 +1,31 @@
+<openpnp-board version="1.1" name="board1.xml.board.xml">
+   <dimensions units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
+   <fiducials/>
+   <placements>
+      <placement version="1.4" id="F1" side="Top" part-id="F1" type="Fiducial" enabled="true">
+         <location units="Millimeters" x="23.02569232337574" y="292.6604182880424" z="0.0" rotation="0.0"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+      <placement version="1.4" id="F2" side="Top" part-id="F1" type="Fiducial" enabled="true">
+         <location units="Millimeters" x="174.00288308060405" y="285.7918237202957" z="0.0" rotation="0.0"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+      <placement version="1.4" id="F3" side="Top" part-id="F1" type="Fiducial" enabled="true">
+         <location units="Millimeters" x="195.99065415406903" y="172.62019005705812" z="0.0" rotation="0.0"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+      <placement version="1.4" id="S1" side="Top" part-id="S1" type="Dispence" enabled="true" glue-amount="2">
+         <location units="Millimeters" x="80.28393464062457" y="260.7268218639953" z="0.0" rotation="0.0"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+      <placement version="1.4" id="S2" side="Top" part-id="S1" type="Dispence" enabled="true">
+         <location units="Millimeters" x="92.96426621124748" y="250.7886598516724" z="0.0" rotation="0.004406274630124943"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+      <placement version="1.4" id="S3" side="Top" part-id="S1" type="Dispence" enabled="true">
+         <location units="Millimeters" x="109.59335458771346" y="251.05953554447004" z="0.0" rotation="0.004406274630124943"/>
+         <error-handling>Alert</error-handling>
+      </placement>
+   </placements>
+   <solder-paste-pads/>
+</openpnp-board>
